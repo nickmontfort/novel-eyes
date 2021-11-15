@@ -41,7 +41,7 @@ color_comment += [" as the sky"] * 3
 color_comment += [" as clear sky"]
 color_comment += [" as the far sky"]
 color_comment += [" as a lucid pond"]
-color_comment += [", though made up, oddly enough, of brown pigment"] * 2
+color_comment += [", though made up, as those familiar with matters ocular explain, of brown pigment"] * 2
 
 # Hazel
 color_comment += [""] * 6
@@ -70,4 +70,16 @@ color_phrase = []
 for i in range(200):
     color_phrase += [color[i] + color_comment[i]]
 
-print(random.choice(color_phrase))
+def color():
+    return random.choice(color_phrase)
+
+def sentence():
+    text = random.choice(["the iris, with its radial stroma, is ", "the iris is ", "the iris is ", "it’s ", "it’s ", "it’s ", "it is ", "that outer ring is", "there around the pupil, ", ""]) + color() + "."
+    return text.capitalize();
+
+sentences = "";
+
+for i in range(500):
+    sentences += sentence() + " "
+
+print(len(sentences.split()))
