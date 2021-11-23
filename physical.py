@@ -74,7 +74,7 @@ def color():
     return random.choice(color_phrase)
 
 def sentence():
-    text = random.choice(["the iris, with its radial stroma, is ", "the iris is ", "the iris is ", "it’s ", "it’s ", "it’s ", "it is ", "that outer ring is", "there around the pupil, ", ""]) + color() + "."
+    text = random.choice(["the iris, with its radial stroma, is ", "the iris is ", "the iris is ", "it’s ", "it’s ", "it’s ", "it is ", "that outer ring is", "there around the pupil, ", "", "like an amazingly regular flower, "]) + color() + "."
     return text.capitalize();
 
 sentences = "";
