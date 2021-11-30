@@ -1,8 +1,11 @@
 import random
 
+# A sketch for something more interesting, 
+# which will not have this sort of pun for its name.
+
 # random.seed(69105);
 
-# For each eye (iris) color, 1% of the population is represented by 20 strings
+# For each iris color, 1% of the population is represented by 20 strings
 color = []
 color += ["brown"] * 140
 color += ["medium brown"] * 10
@@ -99,26 +102,46 @@ direction = ["left to right, then top to bottom", "left to right, then top to bo
 def all_over():
     text1 = ""
     text1 += random.choice(["", "at first "])
-    text1 += random.choice(direction + ["right in the middle, then outwards from there", "erratically", "in various directions"]) + "."
+    text1 += random.choice(direction + ["right in the middle, then outwards from there", "erratically", "in various directions"]) + ". "
     text2 = " "
-    text2 += random.choice(["Then, the motion is", "The movement continues "])
+    text2 += random.choice(["Then, the motion is ", "The movement continues "])
     text2 += random.choice(["toward each margin", "more slowly but still irregularly", "almost in a spiral"])
     return text1 + text2
 
 def typical_prose():
-    return (random.choice(subject) + random.choice(moves) + random.choice(fast_adj) + random.choice(direction) + ".").capitalize() 
+    text = (random.choice(subject) + random.choice(moves) + random.choice(fast_adj) + random.choice(direction) + ". ").capitalize()
+    if (random.random() < .3):
+        text += " " + "Then a pause, a backtracking. "
+    if (random.random() < .1):
+        text += " " + "Now and then, a long hesitation, varied movement. "
+    return text
 
 def typical_poetry():
-    return (random.choice(subject) + random.choice(moves) + random.choice(slow_adj) + random.choice(direction) + ".").capitalize() 
+    text = (random.choice(subject) + random.choice(moves) + random.choice(slow_adj) + random.choice(direction) + ". ").capitalize() 
+    if (random.random() < .3):
+        text += " " + "A skip upwards, then back. "
+    if (random.random() < .1):
+        text += " " + "The progression is in a regular shape. "
+    return text
 
 def visual_poetry():
-    return (random.choice(subject) + random.choice((["skips"] * 3) + moves) + random.choice(slow_adj + fast_adj) + all_over()) + ".".capitalize() 
+    return (random.choice(subject) + random.choice((["skips"] * 3) + moves) + random.choice(slow_adj + fast_adj) + all_over()) + ". ".capitalize() 
 
 sentences = "";
 
-for i in range(2000):
-    text_style = random.choice([typical_prose] * 25 + [typical_poetry] * 4 + [visual_poetry]);
+for i in range(1800):
+    text_style = random.choice([typical_prose] * 50 + [typical_poetry] * 4 + [visual_poetry]);
     sentences += iris_sentence() + " " + pupil_sentence() + " " + sclera_sentence() + " " + text_style() + " \n\n\n"
+
+sentences += iris_sentence() + " " + pupil_sentence() + " " + sclera_sentence() + " "
+
+for i in range(120):
+   text = (random.choice(subject) + random.choice((["skips"] * 3) + moves) + random.choice(slow_adj + fast_adj) + all_over()) + ". ".capitalize()
+   if (random.random() < .1):
+       text += " The lids " + random.choice(["narrow. ", "squeeze together for a moment. "])
+   sentences += text
+
+sentences += "A tear. The lids close."
 
 print(sentences)
 
