@@ -1,5 +1,8 @@
 # novel-eyes
 A NaNoGenMo 2021 Project
+and at best a sketch for a more involved computer-generated book.
+
+Nick Montfort, nickm@nickm.com
 
 𝅘𝅥𝅮 Novel eyes 𝅘𝅥𝅮  
 𝅘𝅥𝅮 They’re watching you𝅘𝅥𝅮  
