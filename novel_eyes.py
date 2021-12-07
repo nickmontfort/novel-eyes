@@ -69,11 +69,6 @@ color_phrase = []
 for i in range(200):
     color_phrase += [color[i] + color_comment[i]]
 
-color_phrase = []
-
-for i in range(200):
-    color_phrase += [color[i] + color_comment[i]]
-
 def color():
     return random.choice(color_phrase)
 
